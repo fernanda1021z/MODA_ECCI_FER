@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-es="Galería · Moda ECCI 2026" data-en="Gallery · ECCI Fashion 2026">Galería · Moda ECCI 2026</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    .gallery-section { padding: 4rem 0; background: var(--purple-deep); min-height: 60vh; }
+    .gallery-section .section-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+    .gallery-section .section-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .gallery-slot {
+      aspect-ratio: 1/1;
+      border: 2px dashed rgba(201,168,76,0.35);
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+      overflow: hidden;
+      position: relative;
+      background: rgba(255,255,255,0.03);
+    }
+    .gallery-slot:hover { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+    .gallery-slot img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      position: absolute; inset: 0;
+      z-index: 1;
+    }
+    .gallery-slot .overlay {
+      position: absolute; inset: 0;
+      background: rgba(58,0,111,0.5);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 2;
+    }
+    .gallery-slot:hover .overlay { opacity: 1; }
+    .overlay-btn {
+      background: var(--gold); color: var(--purple-deep);
+      border: none; padding: 0.5rem 1rem;
+      border-radius: 4px; font-weight: 700; font-size: 0.78rem;
+      cursor: pointer; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    .slot-placeholder {
+      text-align: center; padding: 1rem;
+      position: relative;
+      z-index: 0;
+    }
+    .slot-placeholder .slot-icon { font-size: 1.8rem; margin-bottom: 0.4rem; opacity: 0.6; }
+    .slot-placeholder p { font-size: 0.75rem; color: rgba(255,255,255,0.4); font-weight: bold; }
+    .slot-placeholder span { font-size: 0.65rem; color: rgba(255,255,255,0.25); display: block; margin-top: 0.2rem; }
+
+    .controls {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      margin-bottom: 2rem; align-items: center;
+    }
+    .photo-count { color: rgba(255,255,255,0.5); font-size: 0.85rem; }
+
+    /* Lightbox */
+    .lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(10,0,25,0.92); z-index: 9999;
+      align-items: center; justify-content: center;
+      backdrop-filter: blur(8px);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw; max-height: 90vh;
+      border-radius: 8px;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
+    }
+    .lightbox-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      background: none; border: none; color: var(--white);
+      font-size: 2rem; cursor: pointer; line-height: 1;
+    }
+    .lightbox-close:hover { color: var(--gold); }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="../index.html"><span class="nav-logo-text" data-es="Moda ECCI 2026" data-en="ECCI Fashion 2026">Moda ECCI 2026</span></a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a></li>
+      <li><a href="circulo-cromatico.html" class="nav-link" data-es="Círculo Cromático" data-en="Color Wheel">Círculo Cromático</a></li>
+      <li><a href="teoria-color.html" class="nav-link" data-es="Teoría del Color" data-en="Color Theory">Teoría del Color</a></li>
+      <li><a href="glosario.html" class="nav-link" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+      <li><a href="galeria.html" class="nav-link active" data-es="Galería" data-en="Gallery">Galería</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">
+      <span class="lang-icon">🌐</span>
+      <span id="langLabel">EN</span>
+    </button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">&#9776;</button>
+  </nav>
+
+  <header class="page-header">
+    <p class="eyebrow" data-es="Moda ECCI 2026 · Registro Visual" data-en="ECCI Fashion 2026 · Visual Record">Moda ECCI 2026 · Registro Visual</p>
+    <h1 data-es="Galería de la Conferencia" data-en="Conference Gallery">Galería de la Conferencia</h1>
+    </p>
+  </header>
+
+  <section class="gallery-section">
+    <div class="container">
+      <div class="controls">
+        <span class="photo-count" data-es="Fotos Conferencia" data-en="20 configurable slots">20 espacios configurables</span>
+      </div>
+
+      <div class="gallery-grid" id="galleryGrid">
+        </div>
+    </div>
+  </section>
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightboxImg" src="" alt="Foto de la conferencia" />
+  </div>
+
+  <footer class="footer">
+    <p data-es="© 2026 Moda ECCI · Todos los derechos reservados" data-en="© 2026 ECCI Fashion · All rights reserved">© 2026 Moda ECCI · Todos los derechos reservados</p>
+  </footer>
+
+  <script src="../js/lang.js"></script>
+  <script>
+    const MAX_SLOTS = 20;
+
+    function renderGallery() {
+      const grid = document.getElementById('galleryGrid');
+      grid.innerHTML = '';
+      const lang = document.documentElement.lang || 'es';
+
+      for (let i = 1; i <= MAX_SLOTS; i++) {
+        // CAMBIADO A .png AQUÍ ABAJO
+        const imagePath = `../img/foto${i}.png`; 
+        
+        const slot = document.createElement('div');
+        slot.className = 'gallery-slot';
+        
+        slot.innerHTML = `
+          <div class="slot-placeholder">
+            <div class="slot-icon">📷</div>
+            <p data-es="Espacio ${i}" data-en="Slot ${i}">${lang === 'en' ? `Slot ${i}` : `Espacio ${i}`}</p>
+            <span>(foto${i}.png)</span>
+          </div>
+          <img src="${imagePath}" alt="Foto ${i}" onerror="this.style.display='none';" onload="this.style.display='block'; habilitarOverlay(this);"/>
+        `;
+        
+        grid.appendChild(slot);
+      }
+
+      if (typeof applyLang === 'function') {
+        applyLang(lang);
+      }
+    }
+
+    function habilitarOverlay(imgElement) {
+      const slot = imgElement.parentElement;
+      
+      if(!slot.querySelector('.overlay')) {
+        const overlay = document.createElement('div');
+        overlay.className = 'overlay';
+        overlay.innerHTML = '<button class="overlay-btn">Ver</button>';
+        
+        slot.appendChild(overlay);
+        
+        slot.addEventListener('click', () => {
+          openLightbox(imgElement.src);
+        });
+      }
+    }
+
+    // Controles Lightbox
+    function openLightbox(src) {
+      document.getElementById('lightboxImg').src = src;
+      document.getElementById('lightbox').classList.add('open');
+    }
+
+    function closeLightbox(e) {
+      if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lightbox-close')) {
+        document.getElementById('lightbox').classList.remove('open');
+        document.getElementById('lightboxImg').src = '';
+      }
+    }
+
+    renderGallery();
+  </script>
+</body>
+</html>

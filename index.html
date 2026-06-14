@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title data-es="Moda ECCI 2026" data-en="ECCI Fashion 2026">Moda ECCI 2026</title>
+
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+
+</head>
+
+<body>
+
+
+
+  <!-- ===== NAVBAR ===== -->
+
+  <nav class="navbar" id="navbar">
+
+    <div class="nav-logo">
+
+      <span class="nav-logo-text" data-es="Moda ECCI 2026" data-en="ECCI Fashion 2026">Moda ECCI 2026</span>
+
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+
+      <li><a href="index.html" class="nav-link active" data-es="Inicio" data-en="Home">Inicio</a></li>
+
+      <li><a href="pages/circulo-cromatico.html" class="nav-link" data-es="Círculo Cromático" data-en="Color Wheel">Círculo Cromático</a></li>
+
+      <li><a href="pages/teoria-color.html" class="nav-link" data-es="Teoría del Color" data-en="Color Theory">Teoría del Color</a></li>
+
+      <li><a href="pages/glosario.html" class="nav-link" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+
+      <li><a href="pages/galeria.html" class="nav-link" data-es="Galería" data-en="Gallery">Galería</a></li>
+
+    </ul>
+
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">
+
+      <span class="lang-icon">🌐</span>
+
+      <span id="langLabel">EN</span>
+
+    </button>
+
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">&#9776;</button>
+
+  </nav>
+
+
+
+ <!-- ===== HERO: SARA VILORIA ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow" data-es="Conferencia de Moda · ECCI 2026" data-en="Fashion Conference · ECCI 2026">Conferencia de Moda · ECCI 2026</p>
+        <h1 class="hero-title">Sara Viloria</h1>
+        <p class="hero-subtitle" data-es="Diseñadora de moda colombiana, referente de la industria textil y el diseño contemporáneo." data-en="Colombian fashion designer, a benchmark in the textile industry and contemporary design.">
+          Diseñadora de moda colombiana, referente de la industria textil y el diseño contemporáneo.
+        </p>
+        <div class="hero-divider"></div>
+        <p class="hero-intro" data-es="Sara Viloria es una de las diseñadoras más influyentes de la escena de la moda en Colombia. Con una trayectoria sólida que combina el conocimiento técnico del diseño textil con una visión artística y cultural profunda, Viloria ha logrado posicionarse como un nombre clave dentro del panorama de la moda latinoamericana. Su trabajo explora la identidad, el color y la forma, convirtiendo cada colección en una declaration estética que dialoga con el patrimonio cultural y las tendencias globales. En el marco de la conferencia de Moda ECCI 2026, su presencia representa una oportunidad única para que los estudiantes se acerquen a una voz auténtica de la industria." data-en="Sara Viloria is one of the most influential designers on the Colombian fashion scene. With a solid career that combines technical knowledge of textile design with a deep artistic and cultural vision, Viloria has positioned herself as a key name in the Latin American fashion landscape. Her work explores identity, color, and form, turning each collection into an aesthetic statement that dialogues with cultural heritage and global trends. As part of the ECCI 2026 Fashion Conference, her presence represents a unique opportunity for students to engage with an authentic voice from the industry.">
+          Sara Viloria es una de las diseñadoras más influyentes de la escena de la moda en Colombia. Con una trayectoria sólida que combina el conocimiento técnico del diseño textil con una visión artística y cultural profunda, Viloria ha logrado posicionarse como un nombre clave dentro del panorama de la moda latinoamericana. Su trabajo explora la identidad, el color y la forma, convirtiendo cada colección en una declaración estética que dialoga con el patrimonio cultural y las tendencias globales. En el marco de la conferencia de Moda ECCI 2026, su presencia representa una oportunidad única para que los estudiantes se acerquen a una voz auténtica de la industria.
+        </p>
+        <!-- El botón que estaba aquí ha sido eliminado -->
+      </div>
+      
+      <div class="hero-img-placeholder">
+        <img src="img/sara.png" alt="Sara Viloria" style="max-width: 70%; height: auto; object-fit: cover; border-radius: 12px; border: 3px solid var(--gold); margin: 0 auto;">
+      </div>
+    </section>
+
+ <!-- ===== SECCIÓN: NAVEGACIÓN RÁPIDA ===== -->
+<section class="quick-nav">
+  <div class="container">
+    <h2 class="section-title" data-es="Explora la Conferencia" data-en="Explore the Conference">Explora la Conferencia</h2>
+    
+    <div class="cards-grid">
+
+      <!-- TARJETA 1: CÍRCULO CROMÁTICO -->
+      <a href="pages/circulo-cromatico.html" class="card">
+        <div class="card-icon">
+          <img src="img/circulocroma.png" alt="Círculo Cromático" class="card-img" />
+        </div>
+        <h3 data-es="Círculo Cromático" data-en="Color Wheel">Círculo Cromático</h3>
+        <p data-es="Descubre cómo los colores se relacionan entre sí..." data-en="Discover how colors relate...">Descubre cómo los colores se relacionan entre sí y su aplicación en moda.</p>
+      </a>
+
+      <!-- TARJETA 2: TEORÍA DEL COLOR -->
+      <a href="pages/teoria-color.html" class="card">
+        <div class="card-icon">
+          <img src="img/teoria.png" alt="Teoría del Color" class="card-img" />
+        </div>
+        <h3 data-es="Teoría del Color" data-en="Color Theory">Teoría del Color</h3>
+        <p data-es="Isaac Newton y el origen científico de la comprensión del color." data-en="Isaac Newton and the scientific origin of understanding color.">Isaac Newton y el origen científico de la comprensión del color.</p>
+      </a>
+
+      <!-- TARJETA 3: GLOSARIO -->
+      <a href="pages/glosario.html" class="card">
+        <div class="card-icon">
+          <img src="img/glosario.png" alt="Glosario" class="card-img" />
+        </div>
+        <h3 data-es="Glosario" data-en="Glossary">Glosario</h3>
+        <p data-es="30 términos esenciales de moda y color en español e inglés." data-en="30 essential fashion and color terms in Spanish and English.">30 términos esenciales de moda y color en español e inglés.</p>
+      </a>
+
+      <!-- TARJETA 4: GALERÍA -->
+      <a href="pages/galeria.html" class="card">
+        <div class="card-icon">
+          <img src="img/todos.png" alt="Galería" class="card-img" />
+        </div>
+        <h3 data-es="Galería" data-en="Gallery">Galería</h3>
+        <p data-es="Fotografías de la conferencia Moda ECCI 2026." data-en="Photographs from the ECCI 2026 Fashion Conference.">Fotografías de la conferencia Moda ECCI 2026.</p>
+      </a>
+
+    </div>
+  </div>
+</section>
+  <!-- ===== FOOTER ===== -->
+
+  <footer class="footer">
+
+    <p data-es="© 2026 Moda ECCI ·  Fernanda Zuluaga " data-en="© 2026 ECCI Fashion · All rights reserved">© 2026 Moda ECCI · Fernanda Zuluaga</p>
+
+  </footer>
+
+
+
+  <script src="js/lang.js"></script>
+
+</body>
+
+</html> 
+

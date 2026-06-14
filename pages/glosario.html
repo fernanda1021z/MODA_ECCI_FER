@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-es="Glosario · Moda ECCI 2026" data-en="Glossary · ECCI Fashion 2026">Glosario · Moda ECCI 2026</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <style>
+    .glosario-wrapper { padding: 4rem 0; background: var(--white-soft); }
+    .search-bar {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+    .search-bar input {
+      flex: 1;
+      padding: 0.7rem 1rem;
+      border: 2px solid rgba(106,31,168,0.3);
+      border-radius: 6px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      background: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .search-bar input:focus { border-color: var(--purple-mid); }
+    .no-results { text-align:center; padding: 2rem; color: var(--text-mid); font-style: italic; display: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="../index.html"><span class="nav-logo-text" data-es="Moda ECCI 2026" data-en="ECCI Fashion 2026">Moda ECCI 2026</span></a>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html" class="nav-link" data-es="Inicio" data-en="Home">Inicio</a></li>
+      <li><a href="circulo-cromatico.html" class="nav-link" data-es="Círculo Cromático" data-en="Color Wheel">Círculo Cromático</a></li>
+      <li><a href="teoria-color.html" class="nav-link" data-es="Teoría del Color" data-en="Color Theory">Teoría del Color</a></li>
+      <li><a href="glosario.html" class="nav-link active" data-es="Glosario" data-en="Glossary">Glosario</a></li>
+      <li><a href="galeria.html" class="nav-link" data-es="Galería" data-en="Gallery">Galería</a></li>
+    </ul>
+    <button class="lang-btn" id="langBtn" onclick="toggleLang()">
+      <span class="lang-icon">🌐</span>
+      <span id="langLabel">EN</span>
+    </button>
+    <button class="hamburger" id="hamburger" onclick="toggleMenu()">&#9776;</button>
+  </nav>
+
+  <!-- ENCABEZADO -->
+  <header class="page-header">
+    <p class="eyebrow" data-es="Moda ECCI 2026 · Vocabulario Esencial" data-en="ECCI Fashion 2026 · Essential Vocabulary">Moda ECCI 2026 · Vocabulario Esencial</p>
+    <h1 data-es="Glosario de Moda y Color" data-en="Fashion and Color Glossary">Glosario de Moda y Color</h1>
+    <p data-es="30 términos fundamentales en español e inglés con su definición. Herramienta de estudio para la conferencia Moda ECCI 2026." data-en="30 fundamental terms in Spanish and English with their definition. Study tool for the ECCI 2026 Fashion Conference.">
+      30 términos fundamentales en español e inglés con su definición. Herramienta de estudio para la conferencia Moda ECCI 2026.
+    </p>
+  </header>
+
+  <!-- GLOSARIO -->
+  <section class="glosario-wrapper">
+    <div class="container">
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Buscar término..." oninput="filterTable()" data-es-placeholder="Buscar término..." data-en-placeholder="Search term..." />
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table class="glosario-table" id="glosarioTable">
+          <thead>
+            <tr>
+              <th data-es="Término (ES)" data-en="Term (ES)">Término (ES)</th>
+              <th data-es="Term (EN)" data-en="Term (EN)">Term (EN)</th>
+              <th data-es="Definición" data-en="Definition">Definición</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Color</td><td>Color</td><td>Percepción visual producida por la reflexión de la luz sobre los objetos, interpretada por el ojo humano a través de los conos fotorreceptores de la retina.</td></tr>
+            <tr><td>Tono</td><td>Hue</td><td>Nombre específico de un color dentro del espectro visible, como rojo, azul o verde, que lo diferencia de otros colores.</td></tr>
+            <tr><td>Matiz</td><td>Tint</td><td>Variación de un color producida al añadirle blanco, lo que resulta en versiones más claras o suaves del color original.</td></tr>
+            <tr><td>Saturación</td><td>Saturation</td><td>Intensidad o pureza de un color. Un color muy saturado es vivo y brillante; uno poco saturado es apagado o neutro.</td></tr>
+            <tr><td>Valor</td><td>Value</td><td>Grado de luminosidad u oscuridad de un color, que va del blanco al negro, pasando por todos los grises intermedios.</td></tr>
+            <tr><td>Sombra</td><td>Shade</td><td>Variación de un color producida al añadirle negro, generando versiones más oscuras y profundas del color original.</td></tr>
+            <tr><td>Colores primarios</td><td>Primary colors</td><td>Colores base que no pueden obtenerse mezclando otros: rojo, amarillo y azul en el modelo pigmento; rojo, verde y azul en el modelo luz (RGB).</td></tr>
+            <tr><td>Colores secundarios</td><td>Secondary colors</td><td>Colores que resultan de la mezcla en proporciones iguales de dos colores primarios. Ejemplo: naranja (rojo + amarillo).</td></tr>
+            <tr><td>Colores terciarios</td><td>Tertiary colors</td><td>Colores obtenidos al mezclar un color primario con un color secundario adyacente en el círculo cromático, como el azul-verdoso.</td></tr>
+            <tr><td>Círculo cromático</td><td>Color wheel</td><td>Representación gráfica circular de los colores del espectro visible, organizada para mostrar sus relaciones armónicas y contrastes.</td></tr>
+            <tr><td>Colores complementarios</td><td>Complementary colors</td><td>Colores opuestos en el círculo cromático, que al colocarse juntos generan el máximo contraste visual. Ejemplo: rojo y verde.</td></tr>
+            <tr><td>Colores análogos</td><td>Analogous colors</td><td>Colores que se encuentran uno al lado del otro en el círculo cromático. Crean composiciones armoniosas y de transición suave.</td></tr>
+            <tr><td>Triada cromática</td><td>Color triad</td><td>Combinación de tres colores equidistantes en el círculo cromático. Genera composiciones equilibradas y vibrantes.</td></tr>
+            <tr><td>Temperatura de color</td><td>Color temperature</td><td>Clasificación de los colores según si transmiten sensación de calor (rojos, naranjas, amarillos) o frío (azules, verdes, violetas).</td></tr>
+            <tr><td>Paleta</td><td>Palette</td><td>Conjunto de colores seleccionados y coordinados entre sí para una colección, proyecto o marca de moda.</td></tr>
+            <tr><td>Contraste</td><td>Contrast</td><td>Diferencia visual entre dos o más elementos de color, que puede ser de tono, valor, temperatura o saturación.</td></tr>
+            <tr><td>Diseño textil</td><td>Textile design</td><td>Disciplina creativa que implica la planificación y creación de patrones, estampados y estructuras sobre telas y fibras.</td></tr>
+            <tr><td>Silueta</td><td>Silhouette</td><td>Forma o contorno general que define una prenda o colección desde el punto de vista visual y estructural.</td></tr>
+            <tr><td>Tendencia</td><td>Trend</td><td>Dirección predominante en el diseño, los colores o los estilos de moda en un período de tiempo determinado.</td></tr>
+            <tr><td>Pigmento</td><td>Pigment</td><td>Sustancia colorante natural o sintética usada para dar color a materiales como telas, pinturas, tintas o cosméticos.</td></tr>
+            <tr><td>Espectro</td><td>Spectrum</td><td>Rango completo de longitudes de onda de la luz visible, que va del rojo (longitud larga) al violeta (longitud corta).</td></tr>
+            <tr><td>Cromática</td><td>Chromatics</td><td>Rama del estudio visual que se ocupa del color, sus propiedades, relaciones y efectos perceptivos en el diseño.</td></tr>
+            <tr><td>Neutrales</td><td>Neutrals</td><td>Colores que no aparecen en el círculo cromático tradicional, como el blanco, negro, gris, beige y crudo. Base de muchas colecciones.</td></tr>
+            <tr><td>Degradado</td><td>Gradient</td><td>Transición gradual y suave de un color hacia otro, o de un tono claro a uno oscuro, usada en estampados y efectos visuales en moda.</td></tr>
+            <tr><td>Estampado</td><td>Print / Pattern</td><td>Diseño gráfico aplicado sobre una tela mediante técnicas de impresión, serigrafía o teñido, que puede incluir motivos geométricos, florales o abstractos.</td></tr>
+            <tr><td>Tintura</td><td>Dyeing</td><td>Proceso de aplicar colorantes a fibras textiles para modificar su color de forma permanente o semipermanente.</td></tr>
+            <tr><td>Moda sostenible</td><td>Sustainable fashion</td><td>Enfoque del diseño y producción de moda que prioriza el respeto medioambiental, el uso de materiales eco-amigables y prácticas laborales justas.</td></tr>
+            <tr><td>Colección</td><td>Collection</td><td>Conjunto de prendas, accesorios y propuestas diseñadas bajo un concepto unificado para una temporada o presentación específica.</td></tr>
+            <tr><td>Pasarela</td><td>Runway / Catwalk</td><td>Plataforma alargada donde los modelos presentan las prendas de una colección durante un desfile de moda.</td></tr>
+            <tr><td>Óptica del color</td><td>Color optics</td><td>Estudio de cómo la luz interactúa con los objetos y materiales para producir la percepción del color en el ojo humano, según los principios establecidos por Newton.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="no-results" id="noResults" data-es="No se encontraron resultados para tu búsqueda." data-en="No results found for your search.">No se encontraron resultados para tu búsqueda.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p data-es="© 2026 Moda ECCI · Todos los derechos reservados" data-en="© 2026 ECCI Fashion · All rights reserved">© 2026 Moda ECCI · Todos los derechos reservados</p>
+  </footer>
+
+  <script src="../js/lang.js"></script>
+  <script>
+    function filterTable() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#glosarioTable tbody tr');
+      let found = 0;
+      rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        const show = text.includes(q);
+        row.style.display = show ? '' : 'none';
+        if (show) found++;
+      });
+      document.getElementById('noResults').style.display = found === 0 ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
